@@ -49,7 +49,7 @@ j1.actif=true;
 j2.actif=false;
 }
 
-
+var compt =0; // compteur de nombre de fois quand on obtient des 6 successive
 document.body.addEventListener("onload",init());
 //Q2
 var btnLance=document.querySelector(".btn-lancer");
@@ -58,12 +58,12 @@ var random = Math.floor(Math.random()*6+1);
 				//console.log(random);
 				de.style.display="inline";
 				switch (random){
-						case 1 :de.src="de-1.png";break;
-						case 2 :de.src="de-2.png";break;
-						case 3 :de.src="de-3.png";break;
-						case 4 :de.src="de-4.png";break;
-						case 5 :de.src="de-5.png";break;
-						case 6 :de.src="de-6.png";break;
+						case 1 :{de.src="de-1.png";compt=0;};break;
+						case 2 :{de.src="de-2.png";compt=0;};break;
+						case 3 :{de.src="de-3.png";compt=0;};break;
+						case 4 :{de.src="de-4.png";compt=0;};break;
+						case 5 :{de.src="de-5.png";compt=0;};break;
+						case 6 :{de.src="de-6.png";compt++;};break;
 				}
 				if(random==1){
 							if(j1.actif==true){
@@ -97,6 +97,32 @@ var random = Math.floor(Math.random()*6+1);
 								j2.ScoreTemp+=random;
 								bScoreTempJ2.innerHTML=j2.ScoreTemp;
 								
+								
+							}
+
+				}
+				if(compt==2){
+							if(j1.actif==true){
+								j1.ScoreTemp=0;
+								j1.ScoreTot=0;
+								bScoreTempJ1.innerHTML=0;
+								bScoreJ1.innerHTML=0;
+								j1.actif=false;
+								j2.actif=true;
+								pj2.classList.add("actif");
+								pj1.classList.remove("actif");
+
+							}
+
+							else{
+								j2.ScoreTemp=0;
+								j2.ScoreTot=0;
+								bScoreTempJ2.innerHTML=0;
+								bScoreJ2.innerHTML=0;
+								j2.actif=false;
+								j1.actif=true;
+								pj1.classList.add("actif");
+								pj2.classList.remove("actif");
 								
 							}
 
@@ -142,10 +168,13 @@ btnPasse.addEventListener("click",function joueurSuivant(){
 						if(j1.ScoreTot>=scoreMax){
 
 							document.querySelector("#nom-0").innerHTML="Vainqueur !";
-							document.querySelector("#nom-0").classList.add("vainqueur");
+							document.querySelector("#nom-0").classList.add("vainqueur"); 
+							
 						}
-						if(j2.ScoreTot>=scoreMax){	document.querySelector("#nom-1").innerHTML="Vainqueur !";
+						if(j2.ScoreTot>=scoreMax){	
+							document.querySelector("#nom-1").innerHTML="Vainqueur !";
 							document.querySelector("#nom-1").classList.add("vainqueur");
+
 						}
 
 
@@ -165,7 +194,10 @@ document.querySelector(".btn-new").addEventListener("click",function(){
 
 								j1.actif=true;
 								j2.actif=false;
+								document.getElementById("nom-0").innerHTML="Joueur 1";
+								document.getElementById("nom-1").innerHTML="Joueur 2";
 
+					
 					});
 
-
+//Q7
