@@ -1,8 +1,10 @@
 //Zakaria Charra - Azzouzi Anas B-10
 
 //const scoreMax=20;
+
 //Q6
-document.body.innerHTML+='<label> Score max </label> <input type="text" id="scoreMax"/><button id="ok">ok</button> <span id="sm"> Votre score Max est :</span> '; 
+
+document.body.innerHTML+='<label> Score max </label> <input type="text" id="scoreMax"/> <br/><button id="ok">ok</button> <br/><span id="sm"> Votre score Max est :</span> '; 
 var btnok = document.getElementById("ok");
 var scoreMax=0;
 btnok.addEventListener("click",function(){
@@ -194,8 +196,8 @@ document.querySelector(".btn-new").addEventListener("click",function(){
 
 								j1.actif=true;
 								j2.actif=false;
-								document.getElementById("nom-0").innerHTML="Joueur 1";
-								document.getElementById("nom-1").innerHTML="Joueur 2";
+								document.getElementById("nom-0").innerHTML='<div class="nom-joueur" id="nom-0">joueur 1<i class="ion-social-tux"></i></div>';
+								document.getElementById("nom-1").innerHTML='<div class="nom-joueur" id="nom-1">joueur 2<i class="ion-social-tux"></i></div>';
 
 					
 					});
