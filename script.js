@@ -25,6 +25,7 @@ var j2=new Joueur("2");
 
 
 function init(){
+
 // Q1 a 
  scoreJ1=0;
  scoreJ2=0;
@@ -36,8 +37,9 @@ function init(){
  bScoreTempJ1.innerHTML=0;
  bScoreTempJ2.innerHTML=0;
 // Q1 b
-pj1.classList.add("actif");
 pj2.classList.remove("actif");
+pj1.classList.add("actif");
+
 
 //Q1 c
 de.style.display="none";
@@ -102,7 +104,9 @@ var random = Math.floor(Math.random()*6+1);
 
 });
 //Q3
-function joueurSuivant(){
+var btnPasse=document.querySelector(".btn-passe");
+btnPasse.addEventListener("click",function joueurSuivant(){
+
 							de.style.display="none";
 
 							if(j1.actif==true){
@@ -111,6 +115,7 @@ function joueurSuivant(){
 								j1.actif=false;
 								j2.actif=true;
 								bScoreJ1.innerHTML=j1.ScoreTot;
+								bScoreTempJ1.innerHTML=0;
 								pj2.classList.add("actif");
 								pj1.classList.remove("actif");
 
@@ -123,9 +128,10 @@ function joueurSuivant(){
 								j2.actif=false;
 								j1.actif=true;
 								bScoreJ2.innerHTML=j2.ScoreTot;
+								bScoreTempJ2.innerHTML=0;
 								pj1.classList.add("actif");
 								pj2.classList.remove("actif");
 
 							}
-}
-document.querySelector(".btn-passe").addEventListener("click",joueurSuivant());
+
+});
