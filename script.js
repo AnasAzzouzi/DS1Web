@@ -134,4 +134,18 @@ btnPasse.addEventListener("click",function joueurSuivant(){
 
 							}
 
+							 Q4();
 });
+//Q4
+			function Q4(){
+						if(j1.ScoreTot>=scoreMax){
+
+							document.querySelector("#nom-0").innerHTML="Vainqueur !";
+							document.querySelector("#nom-0").classList.add("vainqueur");
+						}
+						if(j2.ScoreTot>=scoreMax){	document.querySelector("#nom-1").innerHTML="Vainqueur !";
+							document.querySelector("#nom-1").classList.add("vainqueur");
+						}
+
+
+			}
