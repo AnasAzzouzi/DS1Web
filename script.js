@@ -1,9 +1,15 @@
 //Zakaria Charra - Azzouzi Anas B-10
-var scoreJ1;
-var scoreJ2;
-var scoreTempJ1;
-var scoreTempJ2;
-const scoreMax=20;
+
+//const scoreMax=20;
+//Q6
+document.body.innerHTML+='<label> Score max </label> <input type="text" id="scoreMax"/><button id="ok">ok</button> <span id="sm"> Votre score Max est :</span> '; 
+var btnok = document.getElementById("ok");
+var scoreMax=0;
+btnok.addEventListener("click",function(){
+scoreMax=Number.parseInt(document.getElementById("scoreMax").value);
+document.getElementById("sm").innerHTML+=scoreMax;
+
+});
 
 var bScoreJ1=document.getElementById('score-0');
 var bScoreJ2=document.getElementById('score-1');
@@ -26,12 +32,7 @@ var j2=new Joueur("2");
 
 function init(){
 
-// Q1 a 
- scoreJ1=0;
- scoreJ2=0;
- scoreTempJ1=0;
- scoreTempJ2=0;
- 
+// Q1 a  
  bScoreJ1.innerHTML=0;
  bScoreJ2.innerHTML=0;
  bScoreTempJ1.innerHTML=0;
@@ -149,3 +150,22 @@ btnPasse.addEventListener("click",function joueurSuivant(){
 
 
 			}
+//Q5
+document.querySelector(".btn-new").addEventListener("click",function(){
+ 
+								 bScoreJ1.innerHTML=0;
+								 bScoreJ2.innerHTML=0;
+								 bScoreTempJ1.innerHTML=0;
+								 bScoreTempJ2.innerHTML=0;
+
+								pj2.classList.remove("actif");
+								pj1.classList.add("actif");
+
+								de.style.display="none";
+
+								j1.actif=true;
+								j2.actif=false;
+
+					});
+
+
