@@ -1,3 +1,4 @@
+//Zakaria Charra - Azzouzi Anas B-10
 var scoreJ1;
 var scoreJ2;
 var scoreTempJ1;
@@ -21,6 +22,8 @@ function Joueur(nbr){
 }
 var j1=new Joueur("1");
 var j2=new Joueur("2");
+
+
 function init(){
 // Q1 a 
  scoreJ1=0;
@@ -42,6 +45,8 @@ de.style.display="none";
 j1.actif=true;
 j2.actif=false;
 }
+
+
 document.body.addEventListener("onload",init());
 //Q2
 var btnLance=document.querySelector(".btn-lancer");
@@ -62,6 +67,7 @@ var random = Math.floor(Math.random()*6+1);
 								bScoreTempJ1.innerHTML=0;
 								j1.ScoreTemp=0;
 								j1.actif=false;
+								j2.actif=true;
 								pj1.classList.remove("actif");
 								pj2.classList.add("actif");
 							}
@@ -70,6 +76,7 @@ var random = Math.floor(Math.random()*6+1);
 								bScoreTempJ2.innerHTML=0;
 								j2.ScoreTemp=0;
 								j2.actif=false;
+								j1.actif=true;
 								pj2.classList.remove("actif");
 								pj1.classList.add("actif");
 							}
@@ -93,4 +100,32 @@ var random = Math.floor(Math.random()*6+1);
 				}
 
 
-})
+});
+//Q3
+function joueurSuivant(){
+							de.style.display="none";
+
+							if(j1.actif==true){
+								j1.ScoreTot+=j1.ScoreTemp;
+								j1.ScoreTemp=0;
+								j1.actif=false;
+								j2.actif=true;
+								bScoreJ1.innerHTML=j1.ScoreTot;
+								pj2.classList.add("actif");
+								pj1.classList.remove("actif");
+
+
+							}
+
+							else{
+								j2.ScoreTot+=j2.ScoreTemp;
+								j2.ScoreTemp=0;
+								j2.actif=false;
+								j1.actif=true;
+								bScoreJ2.innerHTML=j2.ScoreTot;
+								pj1.classList.add("actif");
+								pj2.classList.remove("actif");
+
+							}
+}
+document.querySelector(".btn-passe").addEventListener("click",joueurSuivant());
